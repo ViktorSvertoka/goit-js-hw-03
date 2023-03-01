@@ -1,19 +1,64 @@
-const credits = 23580;
+// # Завдання 4
 
-const pricePerDroid = 3000;
+// Напиши функцію `countTotalSalary(employees)` приймаючу об'єкт зарплат. Функція
+// рахує загальну суму зарплати працівників і повертає її. Кожне поле об'єкта,
+// переданого в функцію, має вигляд `"ім'я":"зарплата"`.
 
-let quantity = prompt('Введіть кількість дроідив');
+// ```js
+// const countTotalSalary = function (employees) {
+//   // твій код
+// };
 
-let totalPrice = quantity * pricePerDroid;
+// /*
+//  * Викличи функції для перевірки працездатності твоєї реалізації.
+//  */
+// console.log(countTotalSalary({})); // 0
 
-if (quantity === null) {
-  console.log('Скасовано користувачем!');
-} else if (totalPrice > credits) {
-  console.log('Недостатньо коштів на рахунку!');
-} else {
-  console.log(
-    `Ви купили ${quantity} дроїдів, на рахунку залишилося ${
-      credits - totalPrice
-    } кредитів.`,
-  );
-}
+// console.log(
+//   countTotalSalary({
+//     mango: 100,
+//     poly: 150,
+//     alfred: 80,
+//   })
+// ); // 330
+
+// console.log(
+//   countTotalSalary({
+//     kiwi: 200,
+//     lux: 50,
+//     chelsy: 150,
+//   })
+// ); // 400
+// ```
+
+const countTotalSalary = function (employees) {
+  const values = Object.values(employees);
+
+  console.log(values);
+
+  let totalSalary = 0;
+
+  for (let value of values) {
+    totalSalary += value;
+  }
+
+  return totalSalary;
+};
+
+console.log(countTotalSalary({}));
+
+console.log(
+  countTotalSalary({
+    mango: 100,
+    poly: 150,
+    alfred: 80,
+  }),
+);
+
+console.log(
+  countTotalSalary({
+    kiwi: 200,
+    lux: 50,
+    chelsy: 150,
+  }),
+);
