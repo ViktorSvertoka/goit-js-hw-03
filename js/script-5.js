@@ -1,39 +1,56 @@
-let countryDelivery = prompt('вкажіть країну доставки').toLowerCase();
+// # Завдання 5
 
-let country;
-let price;
+// Напиши функцію `getAllPropValues(arr, prop)`, яка отримує масив об'єктів і ім'я
+// властивості. Повертає масив значень певної властивості `prop` з кожного об'єкта
+// в масиві.
 
-switch (countryDelivery.toLowerCase()) {
-  case 'китай':
-    country = 'Китай';
-    price = 100;
-    console.log(`Доставка в ${country} буде коштувати ${price} кредитів`);
-    break;
+// ```js
+// const products = [
+//   { name: "Радар", price: 1300, quantity: 4 },
+//   { name: "Сканер", price: 2700, quantity: 3 },
+//   { name: "Дроїд", price: 400, quantity: 7 },
+//   { name: "Захоплення", price: 1200, quantity: 2 },
+// ];
 
-  case 'чилі':
-    country = 'Чилі';
-    price = 250;
-    console.log(`Доставка в ${country} буде коштувати ${price} кредитів`);
-    break;
+// const getAllPropValues = function (arr, prop) {
+//   // твій код
+// };
 
-  case 'австралія':
-    country = 'Австралія';
-    price = 170;
-    console.log(`Доставка в ${country} буде коштувати ${price} кредитів`);
-    break;
+// /*
+//  * Викличи функції для перевірки працездатності твоєї реалізації.
+//  */
+// console.log(getAllPropValues(products, "name")); // ['Радар', 'Сканер', 'Дроїд', 'Захоплення']
 
-  case 'індія':
-    country = 'Індія';
-    price = 80;
-    console.log(`Доставка в ${country} буде коштувати ${price} кредитів`);
-    break;
+// console.log(getAllPropValues(products, "quantity")); // [4, 3, 7, 2]
 
-  case 'ямайка':
-    country = 'Ямайка';
-    price = 120;
-    console.log(`Доставка в ${country} буде коштувати ${price} кредитів`);
-    break;
+// console.log(getAllPropValues(products, "category")); // []
+// ```
 
-  default:
-    alert('У вашій країні доставка недоступна!');
-}
+const products = [
+  { name: 'Радар', price: 1300, quantity: 4 },
+  { name: 'Сканер', price: 2700, quantity: 3 },
+  { name: 'Дроїд', price: 400, quantity: 7 },
+  { name: 'Захоплення', price: 1200, quantity: 2 },
+];
+
+console.table(products);
+
+const getAllPropValues = function (arr, prop) {
+  const items = [];
+
+  for (let product of arr) {
+    if (product[prop] === undefined) {
+      break;
+    }
+
+    items.push(product[prop]);
+  }
+
+  return items;
+};
+
+console.log(getAllPropValues(products, 'name'));
+
+console.log(getAllPropValues(products, 'quantity'));
+
+console.log(getAllPropValues(products, 'category'));
