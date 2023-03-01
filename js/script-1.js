@@ -1,9 +1,35 @@
-const name = 'Генератор захисного поля';
+// # Завдання 1
 
-let price = 1000;
+// Напиши скрипт, який, для об'єкта `user`, послідовно:
 
-console.log(`Обрано ${name}, ціна за штуку ${price} кредитів`);
+// - додає поле `mood` зі значенням `'happy'`
+// - замінює значення `hobby` на `'skydiving'`
+// - замінює значення `premium` на `false`
+// - виводить вміст об'єкта `user` в форматі `ключ:значення` використовуючи
+//   `Object.keys()` і `for...of`
 
-price = 2000;
+// ```js
+// const user = {
+//   name: "Mango",
+//   age: 20,
+//   hobby: "html",
+//   premium: true,
+// };
+// ```
 
-console.log(`Обрано ${name}, ціна за штуку ${price} кредитів`);
+const user = {
+  name: 'Mango',
+  age: 20,
+  hobby: 'html',
+  premium: true,
+};
+
+user.mood = 'happy';
+user.hobby = 'skydiving';
+user.premium = false;
+
+const keys = Object.keys(user);
+
+for (let key of keys) {
+  console.log(`${key}: ${user[key]}`);
+}
